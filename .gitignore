@@ -1,0 +1,5 @@
+#Ignore these files and folders
+.
+*.tar
+*.tar.gz
+*.zip
