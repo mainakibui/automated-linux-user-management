@@ -1,0 +1,63 @@
+ABOUT\n
+\n
+SOURCE INFO\n
+Author: @mainakibui\n
+Date: 9 June 2016\n
+BIO: Tinker, developer, cloud fanatic\n
+\n
+WHAT IS THIS\n
+This is a collection of scripts to create, delete and check if a user exists.\n
+My main problem was a repetitive user creation process but after scripting\n
+that part I decided to script the view and delete functionality too.\n
+\n
+WHY SCRIPT IT\n
+I setup quite a no of new linux servers and most of the time I find myself\n
+repeating the same steps each time to add users so I thought an automated\n
+script might save me the hassle of having to type the same commands and text\n
+every time\n
+\n
+HOW TO USE IT\n
+1. Append the appropriate permissions chmod u+x inception.sh\n
+2. run ./inception.sh to apply permissions to all the other scripts\n
+3. Add the users you want to create in bulk one per line in users.txt\n
+3. Add the users you want to create in bulks ssh keys one per line in the same sequence\n
+4. run ./menu.sh and follow the prompts\n
+\n
+OTHER USEFUL INFORMATION\n
+If you are a novice linux user using this script you can also\n
+\n
+1. Install/enable a firewall (ufw, shorewall e.t.c) and close all unused ports\n
+(set default action to drop or reject read more: https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-firewall-policy-to-secure-your-servers)\n
+2. Disable password and root login\n
+\n
+  #edit the file\n
+  vi /etc/ssh/sshd_config\n
+\n
+  #set the following\n
+\n
+  PermitRootLogin no\n
+  PubkeyAuthentication yes\n
+  PasswordAuthentication no\n
+\n
+  #reload config\n
+  service ssh restart\n
+\n
+3. Create a non root account and put it in a group that can sudo (this script will do that for you)\n
+4. Allow that group to sudo\n
+\n
+  #edit the sudoers file\n
+  visudo\n
+\n
+  #add the following under members who might gain root privileges\n
+\n
+  %group-name ALL=(ALL) NOPASSWD: ALL\n
+\n
+This should allow the user whose public key you added to ssh into the server without being required to present a password\n
+\n
+COPYRIGHT\n
+\n
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED\n
+WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR\n
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,\n
+NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n
+\n

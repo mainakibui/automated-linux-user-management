@@ -30,7 +30,7 @@ if [ $(id -u) -eq 0 ]; then
     ;;
     a)  clear
     printf '\n\t%s\n' "$option selected. About this script."
-    about=$(<README)
+    about=$(<about.txt)
     echo -e $about
     ;;
     q)  clear
